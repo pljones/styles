@@ -167,9 +167,9 @@
       <group delimiter=", ">
         <text macro="author-short"/>
         <text macro="year-date"/>
-	<!-- Does this next group do anything? -->
+	<!-- Does this next group do anything? Yes... for locators within cited documents, like "p. 3-14" -->
         <group>
-          <label variable="locator" suffix="*" form="short" strip-periods="true"/>
+          <label variable="locator" suffix=". " form="short" strip-periods="true"/>
           <text variable="locator"/>
         </group>
       </group>
