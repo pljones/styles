@@ -115,7 +115,7 @@
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout prefix="(" suffix=")" delimiter=",">
+    <layout delimiter="," vertical-align="sup">
       <text variable="citation-number"/>
     </layout>
   </citation>
@@ -129,7 +129,7 @@
       <text macro="author"/>
       <text macro="title" suffix=". "/>
       <choose>
-        <if type="bill book graphic legal_case motion_picture report song" match="any">
+        <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <text macro="edition" prefix=" " suffix=" "/>
           <text macro="publisher" prefix=" "/>
         </if>

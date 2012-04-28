@@ -10,7 +10,8 @@
     </author>
     <category citation-format="author-date"/>
     <issn>0012-9658</issn>
-    <updated>2012-01-01T00:00:00+00:00</updated>
+    <updated>2012-04-11T12:00:00+00:00</updated>
+    <link href="http://esapubs.org/esapubs/AuthorInstructions.htm" rel="documentation"/>
     <rights>This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License: http://creativecommons.org/licenses/by-sa/3.0/</rights>
   </info>
   <macro name="container-contributors">
@@ -52,7 +53,7 @@
         <names variable="editor"/>
         <names variable="translator"/>
         <choose>
-          <if type="bill book graphic legal_case motion_picture report song" match="any">
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
             <text variable="title" form="short" font-style="italic"/>
           </if>
           <else>
@@ -84,10 +85,14 @@
     </choose>
   </macro>
   <macro name="publisher">
-    <text variable="genre" suffix=", "/>
-    <group delimiter=", ">
-      <text variable="publisher"/>
-      <text variable="publisher-place"/>
+    <group delimiter=", " prefix=". ">
+      <choose>
+        <if type="article-journal article-magazine" match="none">
+          <text variable="genre"/>
+          <text variable="publisher"/>
+          <text variable="publisher-place"/>
+        </if>
+      </choose>
     </group>
   </macro>
   <macro name="event">
@@ -102,7 +107,7 @@
             <date-part name="year"/>
           </date>
           <choose>
-            <if type="bill book graphic legal_case motion_picture report song article-journal chapter paper-conference" match="none">
+            <if type="article-journal bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="none">
               <date variable="issued">
                 <date-part prefix=", " name="month"/>
                 <date-part prefix=" " name="day"/>
@@ -130,7 +135,7 @@
   </macro>
   <macro name="edition">
     <choose>
-      <if type="bill book graphic legal_case motion_picture report song chapter paper-conference" match="any">
+      <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
         <choose>
           <if is-numeric="edition">
             <number variable="edition" form="ordinal" prefix=", "/>
@@ -150,7 +155,7 @@
         <text variable="volume" prefix=" "/>
         <text variable="page" prefix=":"/>
       </if>
-      <else-if type="bill book graphic legal_case motion_picture report song chapter paper-conference" match="any">
+      <else-if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
         <group prefix=". " delimiter=" ">
           <label variable="page" form="long" text-case="capitalize-first"/>
           <text variable="page"/>
@@ -193,7 +198,7 @@
       <text macro="edition"/>
       <group delimiter=". " prefix=". ">
         <text macro="publisher"/>
-        <text macro="access"/>
+        <!-- text macro="access"/ -->
       </group>
     </layout>
   </bibliography>

@@ -59,7 +59,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="bill book graphic legal_case motion_picture report song" match="any">
+      <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
         <text variable="title" font-style="italic"/>
       </if>
       <else>
@@ -110,7 +110,7 @@
       </else>
     </choose>
   </macro>
-  <citation et-al-min="4" et-al-use-first="1" et-al-subsequent-min="6" et-al-subsequent-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year">
+  <citation et-al-min="4" et-al-use-first="1" disambiguate-add-year-suffix="true" disambiguate-add-names="true" disambiguate-add-givenname="true" collapse="year">
     <layout prefix="(" suffix=")" delimiter="; ">
       <group delimiter=", ">
         <group delimiter=" ">
@@ -121,7 +121,7 @@
       </group>
     </layout>
   </citation>
-  <bibliography et-al-min="4" et-al-use-first="1" subsequent-author-substitute="———">
+  <bibliography et-al-min="99" et-al-use-first="98" subsequent-author-substitute="———">
     <sort>
       <key macro="author"/>
       <key variable="title"/>
@@ -132,7 +132,7 @@
         <date-part name="year"/>
       </date>
       <choose>
-        <if type="bill book graphic legal_case motion_picture report song" match="any">
+        <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <group suffix="." delimiter=" " prefix=" ">
             <text macro="title"/>
             <text macro="edition"/>

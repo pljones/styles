@@ -87,13 +87,13 @@
       <text variable="citation-number"/>
     </layout>
   </citation>
-  <bibliography et-al-min="7" et-al-use-first="3" second-field-align="flush">
+  <bibliography et-al-min="7" et-al-use-first="6" second-field-align="flush">
     <layout>
       <text variable="citation-number" suffix="."/>
       <text macro="author"/>
       <text macro="title" suffix=". "/>
       <choose>
-        <if type="bill book graphic legal_case motion_picture report song" match="any">
+        <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <text macro="edition" prefix="" suffix=" "/>
           <text macro="publisher" prefix=""/>
         </if>

@@ -59,7 +59,7 @@
         <names variable="editor"/>
         <names variable="translator"/>
         <choose>
-          <if type="bill book graphic legal_case motion_picture report song" match="any">
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
             <text variable="title" form="short" font-style="italic"/>
           </if>
           <else>
@@ -74,7 +74,7 @@
       <if type="report">
         <text variable="title" quotes="true"/>
       </if>
-      <else-if type="bill book graphic legal_case motion_picture report song" match="any">
+      <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
         <text variable="title" font-style="italic"/>
       </else-if>
       <else>
@@ -83,11 +83,15 @@
     </choose>
   </macro>
   <macro name="publisher">
-    <text variable="genre" suffix=", "/>
-    <group delimiter=": ">
-      <text variable="publisher-place"/>
-      <text variable="publisher"/>
-    </group>
+    <choose>
+      <if type="article-journal article-magazine" match="none">
+        <text variable="genre" suffix=", "/>
+        <group delimiter=": ">
+          <text variable="publisher-place"/>
+          <text variable="publisher"/>
+        </group>
+      </if>
+    </choose>
   </macro>
   <macro name="event">
     <text variable="event"/>
@@ -121,7 +125,7 @@
   </macro>
   <macro name="edition">
     <choose>
-      <if type="bill book graphic legal_case motion_picture report song chapter paper-conference" match="any">
+      <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
         <choose>
           <if is-numeric="edition">
             <group delimiter=" ">
@@ -160,7 +164,7 @@
           <text variable="page"/>
         </group>
       </if>
-      <else-if type="bill book graphic legal_case motion_picture report song chapter paper-conference" match="any">
+      <else-if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
         <text variable="page"/>
       </else-if>
       <else-if type="webpage">

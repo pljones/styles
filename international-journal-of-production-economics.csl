@@ -5,7 +5,7 @@
     <id>http://www.zotero.org/styles/international-journal-of-production-economics</id>
     <link href="http://www.zotero.org/styles/international-journal-of-production-economics" rel="self"/>
     <author>
-      <name>Sebastian karcher</name>
+      <name>Sebastian Karcher</name>
     </author>
     <contributor>
       <name>Julian Onions</name>
@@ -66,7 +66,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="bill book graphic legal_case motion_picture report song thesis" match="any">
+      <if type="bill book graphic legal_case legislation motion_picture report song thesis" match="any">
         <text variable="title" font-style="italic"/>
       </if>
       <else>
@@ -136,7 +136,7 @@
         <date-part name="year"/>
       </date>
       <choose>
-        <if type="bill book graphic legal_case motion_picture report song" match="any">
+        <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <group prefix=" " delimiter=" " suffix=",">
             <text macro="title"/>
             <text macro="edition"/>

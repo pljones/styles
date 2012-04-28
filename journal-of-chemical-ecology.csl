@@ -6,7 +6,7 @@
     <link href="http://www.zotero.org/styles/journal-of-chemical-ecology" rel="self"/>
     <link href="http://www.springer.com/life+sciences/ecology/journal/10886" rel="documentation"/>
     <author>
-      <name>Sebastian Karcher </name>
+      <name>Sebastian Karcher</name>
     </author>
     <contributor>
       <name>Rintze Zelle</name>
@@ -25,7 +25,7 @@
       <if type="chapter paper-conference" match="any">
         <text term="in" suffix=" "/>
         <names variable="editor translator" delimiter=", ">
-          <name  and="text" sort-separator=", " initialize-with=". " delimiter=", " />
+          <name and="text" sort-separator=", " initialize-with=". " delimiter=", "/>
           <label form="short" prefix=" (" suffix=")."/>
         </names>
       </if>
@@ -36,7 +36,7 @@
       <if type="chapter paper-conference" match="none">
         <names variable="editor translator" delimiter=", " prefix=" (" suffix=")">
           <name and="text" initialize-with=". " delimiter=", "/>
-          <label form="short" prefix=", " text-case="capitalize-first" />
+          <label form="short" prefix=", " text-case="capitalize-first"/>
         </names>
       </if>
     </choose>
@@ -62,11 +62,11 @@
         <names variable="editor"/>
         <names variable="translator"/>
         <choose>
-          <if type="bill book graphic legal_case motion_picture report song" match="any">
-            <text variable="title" form="short" />
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
+            <text variable="title" form="short"/>
           </if>
           <else>
-            <text variable="title" form="short" />
+            <text variable="title" form="short"/>
           </else>
         </choose>
       </substitute>
@@ -97,8 +97,8 @@
     <group delimiter=". ">
       <text variable="genre"/>
       <group delimiter=", ">
-	<text variable="publisher"/>
-	<text variable="publisher-place"/>
+        <text variable="publisher"/>
+        <text variable="publisher-place"/>
       </group>
     </group>
     <text variable="number-of-pages" prefix=". " suffix=" pp"/>
@@ -115,7 +115,7 @@
             <date-part name="year"/>
           </date>
           <choose>
-            <if type="bill book graphic legal_case motion_picture report song article-journal chapter paper-conference" match="none">
+            <if type="article-journal bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="none">
               <date variable="issued">
                 <date-part prefix=", " name="month"/>
                 <date-part prefix=" " name="day"/>
@@ -143,11 +143,11 @@
   </macro>
   <macro name="edition">
     <choose>
-      <if type="bill book graphic legal_case motion_picture report song chapter paper-conference" match="any">
+      <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
         <choose>
           <if is-numeric="edition">
             <number variable="edition" form="ordinal" prefix=", "/>
-            <text term="edition" form="long" prefix=" " />
+            <text term="edition" form="long" prefix=" "/>
           </if>
           <else>
             <text variable="edition" prefix=", " suffix=""/>
@@ -163,17 +163,17 @@
         <text variable="volume" prefix=" "/>
         <text variable="page" prefix=":"/>
       </if>
-      <else-if type="bill book graphic legal_case motion_picture report song chapter paper-conference" match="any">
+      <else-if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
         <group prefix=", " delimiter=", ">
-	  <group delimiter=" ">
-	    <label variable="page" form="short" />
-	    <text variable="page"/>
-	  </group>
-	  <group delimiter=" ">          
-	    <text macro="container-contributors"/>
-	    <text macro="secondary-contributors"/>
-	    <text variable="container-title" />
-	  </group>
+          <group delimiter=" ">
+            <label variable="page" form="short"/>
+            <text variable="page"/>
+          </group>
+          <group delimiter=" ">
+            <text macro="container-contributors"/>
+            <text macro="secondary-contributors"/>
+            <text variable="container-title"/>
+          </group>
         </group>
       </else-if>
     </choose>

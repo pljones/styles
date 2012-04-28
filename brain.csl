@@ -24,7 +24,7 @@
         <names variable="editor"/>
         <names variable="translator"/>
         <choose>
-          <if type="bill book graphic legal_case motion_picture report song" match="any">
+          <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
             <text variable="title" form="short" font-style="italic"/>
           </if>
           <else>
@@ -70,20 +70,24 @@
     </date>
   </macro>
   <macro name="access">
-    <group delimiter=" ">
-      <group prefix="[" suffix="]" delimiter=" ">
-        <text term="cited" text-case="lowercase"/>
-        <date variable="accessed" suffix="">
-          <date-part name="year"/>
-          <date-part name="month" prefix=" " form="short" strip-periods="true"/>
-          <date-part name="day" prefix=" "/>
-        </date>
-      </group>
-      <group>
-        <text value="Available from: "/>
-        <text variable="URL"/>
-      </group>
-    </group>
+    <choose>
+      <if variable="URL">
+        <group delimiter=" ">
+          <group prefix="[" suffix="]" delimiter=" ">
+            <text term="cited" text-case="lowercase"/>
+            <date variable="accessed" suffix="">
+              <date-part name="year"/>
+              <date-part name="month" prefix=" " form="short" strip-periods="true"/>
+              <date-part name="day" prefix=" "/>
+            </date>
+          </group>
+          <group>
+            <text value="Available from: "/>
+            <text variable="URL"/>
+          </group>
+        </group>
+      </if>
+    </choose>
   </macro>
   <macro name="title">
     <group delimiter=" ">
@@ -130,7 +134,7 @@
       <text macro="author"/>
       <text macro="title" suffix=". "/>
       <choose>
-        <if type="bill book graphic legal_case motion_picture report song" match="any">
+        <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <text macro="edition" prefix=" " suffix=" "/>
           <text macro="publisher" prefix=" "/>
         </if>
